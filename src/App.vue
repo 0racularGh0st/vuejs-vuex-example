@@ -1,30 +1,35 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="mainapp">
+    <product-list-one v-bind:products = "products"></product-list-one>
+    <product-list-two v-bind:products = "products"></product-list-two>
   </div>
-  <router-view/>
+ 
 </template>
+<script>
+import ProductListOne from './components/ProductListOne';
+import ProductListTwo from './components/ProductListTwo';
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: {
+    'product-list-one': ProductListOne,
+    'product-list-two': ProductListTwo
+  },
+  name: 'mainapp',
+  data(){
+    return {
+      products: [
+        {name: 'Banana', price: 20 },
+         {name: 'Shiny Star', price: 40 },
+          {name: 'Green Shells', price: 60},
+           {name: 'Red Shells', price: 80}
+      ]
     }
   }
+}
+</script>
+<style lang="scss">
+body{
+   font-family: Ubuntu;
+    color: #555;
 }
 </style>
