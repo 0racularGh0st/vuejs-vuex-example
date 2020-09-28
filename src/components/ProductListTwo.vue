@@ -12,12 +12,11 @@
 </template>
 <script>
 export default {
-    props: ['products'],
-  data(){
-    return {
-     
-    }
-  }
+      computed: {
+      products: function(){
+          return this.$store.state.products
+      }
+      }
 }
 </script>
 <style  scoped lang="scss">
