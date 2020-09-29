@@ -16,11 +16,16 @@ export default createStore({
             name: "**"+ product.name+ "**",
             price: product.price/2
         }
-    })
+    });
     return saleProducts;
     }
   },
   mutations: {
+    reducePrice: state => {
+      state.products.forEach(product=>{
+        product.price -= 1;
+            })
+    }
   },
   actions: {
   },
